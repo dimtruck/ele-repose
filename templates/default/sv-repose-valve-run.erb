@@ -3,6 +3,7 @@
 source /etc/sysconfig/repose
 
 exec chpst -u repose -- \
-              /usr/bin/java -- \
-              -jar /usr/share/repose/repose-valve.jar \
-              -c /etc/repose 2>&1
+            ${JAVA_BIN} -- \
+              ${JAVA_OPTS} \
+              -jar ${REPOSE_JAR} \
+              ${RUN_OPTS}  2>&1
