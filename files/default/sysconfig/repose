@@ -1,4 +1,4 @@
-JAVA_HOME=/usr/lib/jvm/java-8-oracle-i386
+JAVA_HOME=JAVA=/usr/lib/jvm/jdk1.8.0_60
 JAVA_BIN=$JAVA_HOME/bin/java
 CONFIG_DIRECTORY=/etc/repose
 USER=repose
