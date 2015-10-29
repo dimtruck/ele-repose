@@ -1,0 +1,9 @@
+#!/bin/sh
+
+source /etc/sysconfig/repose
+
+exec chpst -u repose -- \
+            ${JAVA_BIN} -- \
+              ${JAVA_OPTS} \
+              -jar ${REPOSE_JAR} \
+              ${RUN_OPTS}  2>&1

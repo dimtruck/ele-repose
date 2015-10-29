@@ -1,4 +1,5 @@
-JAVA=/usr/lib/jvm/jdk1.8.0_60/bin/java
+JAVA_HOME=JAVA=/usr/lib/jvm/jdk1.8.0_60
+JAVA_BIN=$JAVA_HOME/bin/java
 CONFIG_DIRECTORY=/etc/repose
 USER=repose
 NAME=repose-valve
@@ -8,6 +9,6 @@ REPOSE_JAR=${DAEMON_HOME}/${NAME}.jar
 # default start args
 #START_ARGS="--start --quiet --oknodo --make-pidfile --pidfile ${PID_FILE} --background"
 
-JAVA_OPTS="-server -Xms512m -Xmx2048m -XX:MetaspaceSize=256m -XX:-UseConcMarkSweepGC"
+JAVA_OPTS="-server -Xms2g -Xmx4g -XX:+UseG1GC XX:+HeapDumpOnOutOfMemoryError"
 RUN_OPTS="-c $CONFIG_DIRECTORY"
 CLEAN=/usr/bin/clean-repose-deploy
