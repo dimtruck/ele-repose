@@ -1,3 +1,11 @@
+# 0.2.18
+- fix runit support
+- fix java_opts syntax in sysconfig
+
+# 0.2.17
+- add Runit support
+- remove sysv init script
+
 # 0.2.16
 - switch to Concurrent Mark/Sweep GC
 - bump heap to alleviate out of memory issues
