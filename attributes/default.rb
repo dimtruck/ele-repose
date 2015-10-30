@@ -95,9 +95,10 @@ default['repose']['keystone_v2']['identity_set_roles'] = true
 default['repose']['keystone_v2']['identity_set_groups'] = false
 default['repose']['keystone_v2']['identity_set_catalog'] = false
 default['repose']['keystone_v2']['whitelist_uri_regexes'] = %w(
-  .*/v1.0/(\d+|[a-zA-Z]+:\d+)/agent_installers/.+(\.sh)?
-  .*/pki/.*?
-  .*/version?
+  ^/?
+  ^/pki/.*?
+  ^/version?
+  ^/v1.0/(\d+|[a-zA-Z]+:\d+)/agent_installers/.+(\.sh)?
 )
 default['repose']['keystone_v2']['tenant_uri_extraction_regex'] = '.*/v1.0/(\d+|[a-zA-Z]+:\d+)/.+'
 default['repose']['keystone_v2']['preauthorized_service_admin_role'] = nil

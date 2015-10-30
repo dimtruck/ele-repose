@@ -1,3 +1,8 @@
+# 0.2.19
+- complete fixes to runit support
+- expand log4j2 logging
+- tighten up whitelist regexes
+
 # 0.2.18
 - fix runit support
 - fix java_opts syntax in sysconfig
