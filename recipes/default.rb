@@ -1,15 +1,8 @@
 require 'uri'
 
-# do some pre-configuration to ensure repose starts with the correct java, etc. (pkg install will auto-start service)
-cookbook_file '/etc/sysconfig/repose' do
-  source 'sysconfig/repose'
-  owner 'root'
-  group 'root'
-  mode '0755'
-  action :create
-end
-
 include_recipe 'java'
+
+include_recipe 'wrapper-repose::log4j2'
 
 include_recipe 'repose::filter-header-normalization'
 include_recipe 'repose::filter-header-translation'
