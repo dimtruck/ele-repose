@@ -21,10 +21,6 @@ runit_service 'repose-valve' do
   log_group 'daemon'
 end
 
-file '/etc/init.d/repose-valve' do
-  action :delete
-end
-
 include_recipe 'repose::load_peers' if node['repose']['peer_search_enabled']
 
 unless node['repose']['cluster_id'].nil?
