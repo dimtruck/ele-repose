@@ -1,3 +1,8 @@
+# 0.3.0
+- upgrade Repose to version 7.1.7.1 (fix for Valkyrie culling bug)
+- set JVM min-heap == max-heap to avoid GC pause
+- reduce log4j2 logging
+
 # 0.2.19
 - complete fixes to runit support
 - expand log4j2 logging
