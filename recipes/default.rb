@@ -1,6 +1,15 @@
 require 'uri'
 
-include_recipe 'java'
+# extract-device-id filter requires java 1.8
+java_ark 'jdk' do
+  url 'http://f203e7ccada4106422d5-525efbc04163a45a7d6a38d479995b34.r68.cf2.rackcdn.com/jdk-8u60-linux-x64.tar.gz'
+  checksum '1ab9805c5c1b20d56ac287613c3ffa9fc74f2a0dc0fcf1a9eea90811964a5055'
+  app_home '/usr/lib/jvm'
+  default false
+  reset_alternatives false
+  use_alt_suffix false
+  action :install
+end
 
 include_recipe 'wrapper-repose::log4j2'
 
@@ -13,13 +22,12 @@ include_recipe 'wrapper-repose::filter-valkyrie-authorization'
 
 include_recipe 'repose::install'
 
+include_recipe 'runit'
+
 # NOTE repose::default is mostly copied here due to the following code (which makes wrapping nigh impossible):
 # https://github.com/rackerlabs/cookbook-repose/blob/31a561526a1d393b1d7ef8370be26b3999e01f84/recipes/default.rb#L93
 
-runit_service 'repose-valve' do
-  log_owner 'daemon'
-  log_group 'daemon'
-end
+runit_service 'repose-valve'
 
 include_recipe 'repose::load_peers' if node['repose']['peer_search_enabled']
 
