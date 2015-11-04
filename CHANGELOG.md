@@ -1,3 +1,8 @@
+# 0.3.1
+- use java_ark LWRP directly to avoid conflicts with other attribute-based java cookbook usages
+- fix (useless) test
+- bump kitchen VM memory to 2.5G and initial repose heap to 2G
+
 # 0.3.0
 - upgrade Repose to version 7.1.7.1 (fix for Valkyrie culling bug)
 - set JVM min-heap == max-heap to avoid GC pause

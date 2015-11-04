@@ -7,7 +7,7 @@ USER=repose
 NAME=repose-valve
 DAEMON_HOME=/usr/share/repose
 REPOSE_JAR=${DAEMON_HOME}/${NAME}.jar
-JAVA_OPTS="-server -Xms4g -Xmx4g -XX:+UseG1GC"
+JAVA_OPTS="-server -Xms2g -Xmx4g -XX:+UseG1GC"
 RUN_OPTS="-c $CONFIG_DIRECTORY"
 
 exec chpst -u repose -- ${JAVA_BIN} ${JAVA_OPTS} -jar ${REPOSE_JAR} ${RUN_OPTS} 2>&1
