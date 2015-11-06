@@ -22,6 +22,11 @@ include_recipe 'wrapper-repose::filter-valkyrie-authorization'
 
 include_recipe 'repose::install'
 
+if node.chef_environment == 'ele-dev'
+  node.set[:repose][:jvm_minimum_heap_size] = '1g'
+  node.set[:repose][:jvm_maximum_heap_size] = '1g'
+end
+
 include_recipe 'runit'
 
 # NOTE repose::default is mostly copied here due to the following code (which makes wrapping nigh impossible):

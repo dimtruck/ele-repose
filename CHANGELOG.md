@@ -1,5 +1,7 @@
-# 0.3.2
+# 0.3.3
+- parameterize jvm memory in order to lower usage in raxvm
 
+# 0.3.2
 - add ‘test’ rake task that runs style, unit, & integration tasks
 - support environments named ‘prod’ and ‘stage’ without an ‘ele-’ prefix
 
