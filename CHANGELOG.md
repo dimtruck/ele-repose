@@ -1,3 +1,8 @@
+# 0.3.2
+
+- add ‘test’ rake task that runs style, unit, & integration tasks
+- support environments named ‘prod’ and ‘stage’ without an ‘ele-’ prefix
+
 # 0.3.1
 - use java_ark LWRP directly to avoid conflicts with other attribute-based java cookbook usages
 - fix (useless) test

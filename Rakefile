@@ -30,6 +30,10 @@ task :integration do
   end
 end
 
+desc 'Run all tests'
+task test: %w(style unit integration)
+
+desc 'Tasks to run on Travis CI'
 namespace :travis do
   desc 'Run tests on Travis'
   task ci: %w(style)
