@@ -1,3 +1,6 @@
+# 0.3.3
+- switch from runit to upstart
+
 # 0.3.2
 
 - add ‘test’ rake task that runs style, unit, & integration tasks
