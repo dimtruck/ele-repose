@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/mmi-cookbooks/wrapper-repose.svg)](https://travis-ci.org/mmi-cookbooks/wrapper-repose)
+[![Code Climate](https://codeclimate.com/github/mmi-cookbooks/wrapper-repose/badges/gpa.svg)](https://codeclimate.com/github/mmi-cookbooks/wrapper-repose)
+[![Coverage Status](https://coveralls.io/repos/mmi-cookbooks/wrapper-repose/badge.svg?branch=master&service=github)](https://coveralls.io/github/mmi-cookbooks/wrapper-repose?branch=master)
 
 # wrapper-repose
 
