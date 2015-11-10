@@ -31,3 +31,8 @@ describe file('/etc/repose/system-model.cfg.xml') do
   it { should be_grouped_into 'repose' }
   it { should be_mode 644 }
 end
+
+describe service('repose-valve') do
+  it { should be_enabled }
+  it { should be_running.under('upstart') }
+end

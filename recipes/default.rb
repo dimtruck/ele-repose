@@ -27,7 +27,18 @@ include_recipe 'runit'
 # NOTE repose::default is mostly copied here due to the following code (which makes wrapping nigh impossible):
 # https://github.com/rackerlabs/cookbook-repose/blob/31a561526a1d393b1d7ef8370be26b3999e01f84/recipes/default.rb#L93
 
-runit_service 'repose-valve'
+cookbook_file '/etc/init/repose-valve.conf' do
+  source 'repose-valve.upstart'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
+service 'repose-valve' do
+  supports restart: true, status: true
+  action [:enable, :start]
+  provider Chef::Provider::Service::Upstart
+end
 
 include_recipe 'repose::load_peers' if node['repose']['peer_search_enabled']
 
