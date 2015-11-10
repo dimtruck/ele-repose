@@ -10,5 +10,7 @@ REPOSE_JAR=${DAEMON_HOME}/${NAME}.jar
 JAVA_OPTS="-server -Xms2g -Xmx4g -XX:+UseG1GC"
 RUN_OPTS="-c $CONFIG_DIRECTORY"
 
+ulimit -n 32768
+
 exec chpst -u repose -- ${JAVA_BIN} ${JAVA_OPTS} -jar ${REPOSE_JAR} ${RUN_OPTS} 2>&1
 
