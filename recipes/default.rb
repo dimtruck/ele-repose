@@ -37,7 +37,7 @@ end
 # https://github.com/rackerlabs/cookbook-repose/blob/31a561526a1d393b1d7ef8370be26b3999e01f84/recipes/default.rb#L93
 
 template '/etc/init/repose-valve.conf' do
-  source 'repose-valve.upstart'
+  source 'repose-valve.upstart.erb'
   owner 'root'
   group 'root'
   mode '0644'
