@@ -1,8 +1,13 @@
+# 0.3.4
+- parameterize jvm memory in order to lower usage in raxvm
+- lower socket connection timeout to 30 seconds
+- increase fd limit for repose JVM
+- increase connection pool size
+
 # 0.3.3
 - switch from runit to upstart
 
 # 0.3.2
-
 - add ‘test’ rake task that runs style, unit, & integration tasks
 - support environments named ‘prod’ and ‘stage’ without an ‘ele-’ prefix
 
