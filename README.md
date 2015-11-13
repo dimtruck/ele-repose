@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/mmi-cookbooks/wrapper-repose.svg)](https://travis-ci.org/mmi-cookbooks/wrapper-repose)
-[![Code Climate](https://codeclimate.com/github/mmi-cookbooks/wrapper-repose/badges/gpa.svg)](https://codeclimate.com/github/mmi-cookbooks/wrapper-repose)
-[![Coverage Status](https://coveralls.io/repos/mmi-cookbooks/wrapper-repose/badge.svg?branch=master&service=github)](https://coveralls.io/github/mmi-cookbooks/wrapper-repose?branch=master)
+[![Build Status](https://travis-ci.org/mmi-cookbooks/ele-repose.svg)](https://travis-ci.org/mmi-cookbooks/ele-repose)
+[![Code Climate](https://codeclimate.com/github/mmi-cookbooks/ele-repose/badges/gpa.svg)](https://codeclimate.com/github/mmi-cookbooks/ele-repose)
+[![Coverage Status](https://coveralls.io/repos/mmi-cookbooks/ele-repose/badge.svg?branch=master&service=github)](https://coveralls.io/github/mmi-cookbooks/ele-repose?branch=master)
 
-# wrapper-repose
+# ele-repose
 
 Not as cool as [rapper parappa](https://www.youtube.com/watch?v=F5Pm7BL-hyo) but probably more useful :wink:.
 
@@ -26,14 +26,14 @@ Key | Type | Description | Default
 
 ## Usage
 
-### wrapper-repose::default
+### ele-repose::default
 
-Include `wrapper-repose` in your node's `run_list`:
+Include `ele-repose` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[wrapper-repose::default]"
+    "recipe[ele-repose::default]"
   ]
 }
 ```
