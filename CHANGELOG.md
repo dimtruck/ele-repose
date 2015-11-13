@@ -1,3 +1,6 @@
+# 0.3.4
+- renamed wrapper cookbook to 'ele-repose'
+
 # 0.3.3
 - switch from runit to upstart
 
