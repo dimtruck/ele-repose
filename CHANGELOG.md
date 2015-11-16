@@ -1,3 +1,14 @@
+# 0.3.5
+- upgrade to Repose version 7.2.2.0
+- upgrade to extract-device-id filter version 1.1 (relay uri:null entities)
+- parameterize jvm memory in order to lower usage in raxvm
+- lower socket connection timeout to 30 seconds
+- increase fd limit for repose JVM
+- increase connection pool size
+- fix culling regexes
+- whitelist dashboard URIs in Keystone filter
+- accept http or https protocol in culled device uris
+
 # 0.3.4
 - renamed wrapper cookbook to 'ele-repose'
 
@@ -5,7 +16,6 @@
 - switch from runit to upstart
 
 # 0.3.2
-
 - add ‘test’ rake task that runs style, unit, & integration tasks
 - support environments named ‘prod’ and ‘stage’ without an ‘ele-’ prefix
 

@@ -27,11 +27,17 @@ file '/etc/init.d/repose-valve' do
   action :delete
 end
 
+if node.chef_environment == 'dev'
+  node.set[:repose][:jvm_minimum_heap_size] = '1g'
+  node.set[:repose][:jvm_maximum_heap_size] = '1g'
+  node.set[:repose][:jvm_maximum_file_descriptors] = '16384'
+end
+
 # NOTE repose::default is mostly copied here due to the following code (which makes wrapping nigh impossible):
 # https://github.com/rackerlabs/cookbook-repose/blob/31a561526a1d393b1d7ef8370be26b3999e01f84/recipes/default.rb#L93
 
-cookbook_file '/etc/init/repose-valve.conf' do
-  source 'repose-valve.upstart'
+template '/etc/init/repose-valve.conf' do
+  source 'repose-valve.upstart.erb'
   owner 'root'
   group 'root'
   mode '0644'
@@ -177,7 +183,7 @@ end
 
 remote_file "/usr/share/repose/filters/#{node['repose']['bundle_name']}" do
   # distfiles container in maasproject cloud files account (credentials in secure.git)
-  source 'https://1897ddfb466c9e3b1daa-525efbc04163a45a7d6a38d479995b34.ssl.cf2.rackcdn.com/custom-bundle-1.0-SNAPSHOT.ear'
+  source 'https://1897ddfb466c9e3b1daa-525efbc04163a45a7d6a38d479995b34.ssl.cf2.rackcdn.com/custom-bundle-1.1-SNAPSHOT.ear'
   owner node['repose']['owner']
   group node['repose']['group']
   mode '0755'

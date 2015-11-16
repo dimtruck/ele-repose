@@ -26,11 +26,13 @@ default['repose']['endpoints'] = [{
   default: true
 }]
 
-default['repose']['connection_timeout'] = 600_000 # in millis
+default['repose']['connection_timeout'] = 30_000 # in millis
 default['repose']['read_timeout'] = 600_000 # in millis
 
 default['repose']['connection_pool']['socket_timeout'] = 600_000 # in millis
-default['repose']['connection_pool']['connection_timeout'] = 600_000 # in millis
+default['repose']['connection_pool']['connection_timeout'] = 30_000 # in millis
+default['repose']['connection_pool']['max_total'] = 1000
+default['repose']['connection_pool']['max_per_route'] = 500
 
 default['repose']['header_normalization']['cluster_id'] = ['all']
 default['repose']['header_normalization']['uri_regex'] = nil
@@ -61,13 +63,16 @@ default['repose']['header_normalization']['blacklist'] = [{
   )
 }]
 
-default['repose']['version'] = '7.1.7.1'
+default['repose']['version'] = '7.2.2.0'
+default[:repose][:jvm_minimum_heap_size] = '2g'
+default[:repose][:jvm_maximum_heap_size] = '4g'
+default[:repose][:jvm_maximum_file_descriptors] = '65535'
 
 default['repose']['owner'] = 'repose'
 default['repose']['group'] = 'repose'
 
 # attributes for new recipes
-default['repose']['bundle_name'] = 'custom-bundle-1.0-SNAPSHOT.ear'
+default['repose']['bundle_name'] = 'custom-bundle-1.1-SNAPSHOT.ear'
 
 default['repose']['header_translation']['cluster_id'] = ['all']
 default['repose']['header_translation']['uri_regex'] = nil
@@ -98,6 +103,8 @@ default['repose']['keystone_v2']['whitelist_uri_regexes'] = %w(
   ^/?
   ^/pki/.*?
   ^/version?
+  ^/_dashboard.*?
+  ^/_support.*?
   ^/v1.0/(\d+|[a-zA-Z]+:\d+)/agent_installers/.+(\.sh)?
 )
 default['repose']['keystone_v2']['tenant_uri_extraction_regex'] = '.*/v1.0/(\d+|[a-zA-Z]+:\d+)/.+'
@@ -109,7 +116,9 @@ default['repose']['valkyrie_authorization']['cluster_id'] = ['all']
 default['repose']['valkyrie_authorization']['uri_regex'] = '.*/hybrid:\d+/(?!agent_installers/).*'
 default['repose']['valkyrie_authorization']['cache_timeout_millis'] = 60000
 default['repose']['valkyrie_authorization']['enable_masking_403s'] = false
+default['repose']['valkyrie_authorization']['enable_bypass_account_admin'] = true
 default['repose']['valkyrie_authorization']['delegating_quality'] = nil
+default['repose']['valkyrie_authorization']['device_id_mismatch_action'] = 'keep'
 default['repose']['valkyrie_authorization']['valkyrie_server_uri'] = 'http://localhost:8900/valkyrie/v2.0'
 # defaults are for dev/local (recipe overrides with encrypted data bag item by ele environment)
 default['repose']['valkyrie_authorization']['valkyrie_server_username'] = 'valkyrie_username'
