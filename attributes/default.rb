@@ -59,11 +59,10 @@ default['repose']['header_normalization']['blacklist'] = [{
     X-Subject-Token
     X-Subject-Name
     X-Subject-ID
-    X-Support-Token
   )
 }]
 
-default['repose']['version'] = '7.2.2.0'
+default['repose']['version'] = '7.3.0.0'
 default[:repose][:jvm_minimum_heap_size] = '2g'
 default[:repose][:jvm_maximum_heap_size] = '4g'
 default[:repose][:jvm_maximum_file_descriptors] = '65535'
@@ -72,7 +71,7 @@ default['repose']['owner'] = 'repose'
 default['repose']['group'] = 'repose'
 
 # attributes for new recipes
-default['repose']['bundle_name'] = 'custom-bundle-1.1-SNAPSHOT.ear'
+default['repose']['bundle_name'] = 'custom-bundle-1.2-SNAPSHOT.ear'
 
 default['repose']['header_translation']['cluster_id'] = ['all']
 default['repose']['header_translation']['uri_regex'] = nil

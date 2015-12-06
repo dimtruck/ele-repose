@@ -1,3 +1,6 @@
+# 0.3.6
+- upgrade to Repose version 7.3.0.0 (Valkyrie culling 500 fixes)
+
 # 0.3.5
 - upgrade to Repose version 7.2.2.0
 - upgrade to extract-device-id filter version 1.1 (relay uri:null entities)
