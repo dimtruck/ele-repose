@@ -71,7 +71,7 @@ default['repose']['owner'] = 'repose'
 default['repose']['group'] = 'repose'
 
 # attributes for new recipes
-default['repose']['bundle_name'] = 'custom-bundle-1.2-SNAPSHOT.ear'
+default['repose']['bundle_name'] = 'monitoring-custom-filter-bundle.ear'
 
 default['repose']['header_translation']['cluster_id'] = ['all']
 default['repose']['header_translation']['uri_regex'] = nil
