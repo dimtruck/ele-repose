@@ -28,14 +28,14 @@ suites:
     "recipe[repose::filter-translation]",
     "recipe[repose::filter-content-type-stripper]",
     "recipe[repose::filter-client-authorization]",
-    "recipe[wrapper-repose::filter-extract-device-id]",
-    "recipe[wrapper-repose::filter-keystone-v2]",
-    "recipe[wrapper-repose::filter-merge-header]",
-    "recipe[wrapper-repose::filter-valkyrie-authorization]",
+    "recipe[ele-repose::filter-extract-device-id]",
+    "recipe[ele-repose::filter-keystone-v2]",
+    "recipe[ele-repose::filter-merge-header]",
+    "recipe[ele-repose::filter-valkyrie-authorization]",
 
     "recipe[repose::service-connection-pool]",
     "recipe[repose::service-dist-datastore]",
-    "recipe[wrapper-repose::default]",
+    "recipe[ele-repose::default]",
     "recipe[minitest-handler]"
   ]
   attributes:
