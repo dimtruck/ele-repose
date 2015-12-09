@@ -1,3 +1,6 @@
+# 0.3.7
+- rename monitoring custom filter bundle ear file
+
 # 0.3.6
 - upgrade to Repose version 7.3.0.0 (Valkyrie culling 500 fixes)
 
