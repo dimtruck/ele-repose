@@ -134,7 +134,8 @@ filter_cluster_map = {
   'keystone-v2'            => node['repose']['keystone_v2']['cluster_id'],
   'extract-device-id'      => node['repose']['extract_device_id']['cluster_id'],
   'valkyrie-authorization' => node['repose']['valkyrie_authorization']['cluster_id'],
-  'merge-header'           => node['repose']['merge_header']['cluster_id']
+  'merge-header'           => node['repose']['merge_header']['cluster_id'],
+  'simple-rbac'            => node['repose']['simple_rbac']['cluster_id']
 }
 
 filter_uri_regex_map = {
@@ -143,7 +144,8 @@ filter_uri_regex_map = {
   'keystone-v2'            => node['repose']['keystone_v2']['uri_regex'],
   'extract-device-id'      => node['repose']['extract_device_id']['uri_regex'],
   'valkyrie-authorization' => node['repose']['valkyrie_authorization']['uri_regex'],
-  'merge-header'           => node['repose']['merge_header']['uri_regex']
+  'merge-header'           => node['repose']['merge_header']['uri_regex'],
+  'simple-rbac'            => node['repose']['simple_rbac']['uri_regex']
 }
 
 service_cluster_map = {
@@ -178,6 +180,13 @@ template "#{node['repose']['config_directory']}/container.cfg.xml" do
     deploy_auto_clean: node['repose']['deploy_auto_clean'],
     filter_check_interval: node['repose']['filter_check_interval']
   )
+  notifies :restart, 'service[repose-valve]'
+end
+
+template "#{node['repose']['config_directory']}/simple-rbac.cfg.xml" do
+  owner node['repose']['owner']
+  group node['repose']['group']
+  mode '0644'
   notifies :restart, 'service[repose-valve]'
 end
 

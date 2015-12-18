@@ -14,6 +14,7 @@ default['repose']['filters'] = %w(
   extract-device-id
   valkyrie-authorization
   merge-header
+  simple-rbac
 )
 
 default['repose']['endpoints'] = [{
@@ -126,3 +127,6 @@ default['repose']['valkyrie_authorization']['valkyrie_server_password'] = 'valky
 default['repose']['merge_header']['cluster_id'] = ['all']
 default['repose']['merge_header']['uri_regex'] = nil
 default['repose']['merge_header']['headers'] = %w(X-Roles X-Impersonator-Roles)
+
+default['repose']['simple_rbac']['cluster_id'] = ['all']
+default['repose']['simple_rbac']['uri_regex'] = '^/v1\.0/(hybrid:)?\d+/(entities/?|entities/en.{8}/?|entities/en.{8}/checks/?|entities/en.{8}/checks/ch.{8}/?|entities/en.{8}/alarms/?|entities/en.{8}/alarms/al.{8}/?)$'

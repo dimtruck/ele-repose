@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simple-rbac xmlns="http://docs.openrepose.org/repose/simple-rbac/v1.0" roles-header-name="X-ROLES">
+    <resources>
+/v1.0/{accountId}/entities/{entityId}/alarms/{alarmId}   GET             ALL
+/v1.0/{accountId}/entities/{entityId}/alarms/{alarmId}   PUT,DELETE      NOBODY
+/v1.0/{accountId}/entities/{entityId}/alarms             GET             ALL
+/v1.0/{accountId}/entities/{entityId}/alarms             POST            NOBODY
+/v1.0/{accountId}/entities/{entityId}/checks/{checkId}   GET,PUT         ALL
+/v1.0/{accountId}/entities/{entityId}/checks/{checkId}   DELETE          NOBODY
+/v1.0/{accountId}/entities/{entityId}/checks             ANY             ALL
+/v1.0/{accountId}/entities/{entityId}                    GET,PUT         ALL
+/v1.0/{accountId}/entities/{entityId}                    DELETE          NOBODY
+/v1.0/{accountId}/entities                               ANY             ALL
+    </resources>
+</simple-rbac>

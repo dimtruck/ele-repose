@@ -1,3 +1,6 @@
+# 0.3.8
+- forbid access to certain endpoints for Kafka deploy
+
 # 0.3.7
 - rename monitoring custom filter bundle ear file
 
