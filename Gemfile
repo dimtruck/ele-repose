@@ -3,11 +3,10 @@ source 'https://rubygems.org'
 group :style do
   gem 'foodcritic'
   gem 'rubocop'
-  # gem 'rubocop-rspec'
 end
 
 group :spec do
-  gem 'berkshelf', '~> 3'
+  gem 'berkshelf', '~> 4'
   gem 'chefspec', '~> 4'
   gem 'chef-sugar'
 end
@@ -26,7 +25,6 @@ group :integration_rackspace do
 end
 
 group :development do
-  # gem 'coveralls'
   gem 'thor-scmversion'
   gem 'guard', '= 2.8.2'
   gem 'guard-kitchen'
