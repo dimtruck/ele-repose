@@ -6,3 +6,8 @@ Style/FileName:
 
 Style/NumericLiterals:
   MinDigits: 6
+
+AllCops:
+  Exclude:
+    - 'Vagrantfile'
+    - 'test/unit/spec/spec_helper.rb'
