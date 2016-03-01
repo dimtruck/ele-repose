@@ -67,6 +67,8 @@ default[:repose][:jvm_minimum_heap_size] = '2g'
 default[:repose][:jvm_maximum_heap_size] = '4g'
 default[:repose][:jvm_maximum_file_descriptors] = '65535'
 
+default['repose']['deploy_auto_clean'] = true
+
 default['repose']['owner'] = 'repose'
 default['repose']['group'] = 'repose'
 
