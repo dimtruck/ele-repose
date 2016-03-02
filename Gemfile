@@ -7,7 +7,6 @@ group :style do
 end
 
 group :unit do
-  gem 'berkshelf', '~> 3'
   gem 'chefspec', '~> 4'
   gem 'chef-sugar'
 end
