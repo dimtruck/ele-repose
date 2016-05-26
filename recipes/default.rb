@@ -28,9 +28,9 @@ file '/etc/init.d/repose-valve' do
 end
 
 if node.chef_environment == 'dev'
-  node.set[:repose][:jvm_minimum_heap_size] = '1g'
-  node.set[:repose][:jvm_maximum_heap_size] = '1g'
-  node.set[:repose][:jvm_maximum_file_descriptors] = '16384'
+  node.set['repose']['jvm_minimum_heap_size'] = '1g'
+  node.set['repose']['jvm_maximum_heap_size'] = '1g'
+  node.set['repose']['jvm_maximum_file_descriptors'] = '16384'
 end
 
 # NOTE repose::default is mostly copied here due to the following code (which makes wrapping nigh impossible):
