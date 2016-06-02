@@ -18,11 +18,31 @@ Other platforms are untested.
 
 ## Attributes
 
-**TODO** Complete the table for a prize!
-
 Key | Type | Description | Default
 --- | --- | --- | ---
-['foo'] | String | some description | 'bar'
+['peers'] | Array of Object | List of peer objects |  `[{ cluster_id: 'repose', id: 'repose_node', hostname: 'localhost', port: '13579' }]`
+['filters'] | Array | List of Repose filters | `[ header-normalization, header-translation, keystone-v2, extract-device-id, valkyrie-authorization, merge-header]`
+['endpoints'] | Array of Object | Public  API endpoints | `[{ cluster_id: 'repose', id: 'public_api', protocol: 'http', hostname: 'localhost', port: '32321', root_path: '/', default: true }]`
+['connection_timeout'] | Integer | Connection timeout value in milliseconds | `30,000`
+['read_timeout'] | Integer | Read timeout value in milliseconds | `600,000`
+['connection_pool']['socket_timeout'] | Integer | Connection timeout value in milliseconds | `600,000`
+['connection_pool']['connection_timeout'] | Integer | Connection timeout value in milliseconds | `30,000`
+['connection_pool']['max_total'] | Integer | Total | 1000
+['connection_pool']['max_per_route'] | Integer | Maximum per route | 500
+['header_normalization']['cluster_id'] | Array of Strings | cluster  ID | ['all']
+['header_normalization']['uri_regex'] | String | Regular Expression | nil
+['header_normalization']['whitelist'] | Array | Whitelist | `[]`
+['header_normalization']['blacklist'] | Array | Blacklist | `[...]` (see code)
+['version'] | String | Cookbook version | '7.3.0.0'
+['jvm_minimum_heap_size'] | String | Maximum Heap size memeory limit | '2g'
+['jvm_maximum_heap_size'] | String | Minimum Heap size memeory limit | '4g'
+['jvm_maximum_file_descriptors'] | String | Number of file descriptors that can be open at once | '65535'
+['owner'] | String | UNIX owner | 'repose'
+['group'] | String | UNIX group | 'repose'
+['bundle_name'] | String | Name of the java bundle | 'monitoring-custom-filter-bundle.ear'
+
+
+Note, plugins have namespaces under neat `node['repose']` like `[valkyrie_authorization, keystone_v2, merge_header]`.
 
 ## Usage
 
