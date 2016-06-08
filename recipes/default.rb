@@ -98,8 +98,6 @@ if %w(stage prod).any? { |e| e.include?(node.chef_environment) }
   node.set['repose']['keystone_v2']['identity_password'] = identity_password
 
   node.set['repose']['valkyrie_authorization']['valkyrie_server_uri'] = valkyrie_url
-  node.set['repose']['valkyrie_authorization']['valkyrie_server_username'] = valkyrie_username
-  node.set['repose']['valkyrie_authorization']['valkyrie_server_password'] = valkyrie_password
 
   # set non-default (environment-specific) configuration
 
