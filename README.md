@@ -4,7 +4,7 @@
 
 # ele-repose
 
-Not as cool as [rapper parappa](https://www.youtube.com/watch?v=F5Pm7BL-hyo) but probably more useful :wink:.
+Not as cool as [rapper parappa](https://www.youtube.com/watch?v=F5Pm7BL-hyo) but probably more useful :wink: [**NOTE:** this joke was funnier when it was called wrapper-repose]
 
 This cookbook wraps the standard [repose cookbook](https://github.com/rackerlabs/cookbook-repose) and applies our particular settings and filters.
 
