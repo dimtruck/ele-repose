@@ -71,7 +71,6 @@ end
 if %w(stage prod).any? { |e| e.include?(node.chef_environment) }
   # load non-default secrets
   ele_credentials = Chef::EncryptedDataBagItem.load('passwords', 'ele')
-  repose_credentials = Chef::EncryptedDataBagItem.load('credentials', 'repose')
 
   # extract regional identity credentials
   ele_us_auth_api_databag_item = "us_auth_api_password_#{node.chef_environment}"
@@ -89,9 +88,7 @@ if %w(stage prod).any? { |e| e.include?(node.chef_environment) }
 
   identity_url = URI.join(identity_url, '/').to_s # strip trailing path (repose adds it)
 
-  valkyrie_url = repose_credentials["valkyrie_url_#{node.chef_environment}"]
-  valkyrie_username = repose_credentials["valkyrie_username_#{node.chef_environment}"]
-  valkyrie_password = repose_credentials["valkyrie_password_#{node.chef_environment}"]
+  valkyrie_url = node.chef_environment == 'prod' ? 'https://api.valkyrie.rackspace.com' : 'https://staging.api.valkyrie.rackspace.com'
 
   node.set['repose']['keystone_v2']['identity_uri'] = identity_url
   node.set['repose']['keystone_v2']['identity_username'] = identity_username
