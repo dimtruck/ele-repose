@@ -1,3 +1,6 @@
+# 0.3.9
+- Valkyrie v2, Repose v7.3.6.0
+
 # 0.3.7
 - rename monitoring custom filter bundle ear file
 
