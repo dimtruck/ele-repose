@@ -68,7 +68,7 @@ node['repose']['services'].each do |service|
   include_recipe "repose::service-#{service}"
 end
 
-if %w(stage prod).any? { |e| e.include?(node.chef_environment) }
+if %w(stage prod).include?(node.chef_environment)
   # load non-default secrets
   ele_credentials = Chef::EncryptedDataBagItem.load('passwords', 'ele')
   repose_credentials = Chef::EncryptedDataBagItem.load('credentials', 'repose')
