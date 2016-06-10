@@ -33,7 +33,7 @@ Key | Type | Description | Default
 ['header_normalization']['uri_regex'] | String | Regular Expression | nil
 ['header_normalization']['whitelist'] | Array | Whitelist | `[]`
 ['header_normalization']['blacklist'] | Array | Blacklist | `[...]` (see code)
-['version'] | String | Repose version | '7.3.6.0'
+['version'] | String | Repose version | '8.0.1.0'
 ['jvm_minimum_heap_size'] | String | Maximum Heap size memeory limit | '2g'
 ['jvm_maximum_heap_size'] | String | Minimum Heap size memeory limit | '4g'
 ['jvm_maximum_file_descriptors'] | String | Number of file descriptors that can be open at once | '65535'
