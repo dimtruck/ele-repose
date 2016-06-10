@@ -15,8 +15,6 @@ template "#{node['repose']['config_directory']}/valkyrie-authorization.cfg.xml" 
     enable_bypass_account_admin: node['repose']['valkyrie_authorization']['enable_bypass_account_admin'],
     delegating_quality: node['repose']['valkyrie_authorization']['delegating_quality'],
     valkyrie_server_uri: node['repose']['valkyrie_authorization']['valkyrie_server_uri'],
-    valkyrie_server_username: node['repose']['valkyrie_authorization']['valkyrie_server_username'],
-    valkyrie_server_password: node['repose']['valkyrie_authorization']['valkyrie_server_password'],
     device_id_mismatch_action: node['repose']['valkyrie_authorization']['device_id_mismatch_action'],
     preauthorized_service_admin_role: node['repose']['valkyrie_authorization']['preauthorized_service_admin_role']
   )

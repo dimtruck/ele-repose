@@ -62,7 +62,7 @@ default['repose']['header_normalization']['blacklist'] = [{
   )
 }]
 
-default['repose']['version'] = '7.3.0.0'
+default['repose']['version'] = '7.3.6.0'
 default['repose']['jvm_minimum_heap_size'] = '2g'
 default['repose']['jvm_maximum_heap_size'] = '4g'
 default['repose']['jvm_maximum_file_descriptors'] = '65535'
@@ -119,9 +119,6 @@ default['repose']['valkyrie_authorization']['enable_bypass_account_admin'] = tru
 default['repose']['valkyrie_authorization']['delegating_quality'] = nil
 default['repose']['valkyrie_authorization']['device_id_mismatch_action'] = 'keep'
 default['repose']['valkyrie_authorization']['valkyrie_server_uri'] = 'http://localhost:8900/valkyrie/v2.0'
-# defaults are for dev/local (recipe overrides with encrypted data bag item by ele environment)
-default['repose']['valkyrie_authorization']['valkyrie_server_username'] = 'valkyrie_username'
-default['repose']['valkyrie_authorization']['valkyrie_server_password'] = 'valkyrie_p4ssw0rd'
 
 default['repose']['merge_header']['cluster_id'] = ['all']
 default['repose']['merge_header']['uri_regex'] = nil

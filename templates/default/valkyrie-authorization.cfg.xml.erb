@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <valkyrie-authorization xmlns="http://docs.openrepose.org/repose/valkyrie-authorization/v1.0" cache-timeout-millis="<%= @cache_timeout_millis %>" enable-masking-403s="<%= @enable_masking_403s %>" enable-bypass-account-admin="<%= @enable_bypass_account_admin %>">
-    <valkyrie-server uri="<%= @valkyrie_server_uri %>" username="<%= @valkyrie_server_username %>" password="<%= @valkyrie_server_password %>"/>
+    <valkyrie-server uri="<%= @valkyrie_server_uri %>"/>
     <translate-permissions-to-roles/> 
     <collection-resources device-id-mismatch-action="<%= @device_id_mismatch_action %>">
         <resource>
