@@ -1,4 +1,4 @@
-include_recipe 'repose::install'
+include_recipe 'ele-repose::default'
 
 unless node['repose']['filters'].include? 'keystone-v2'
   filters = node['repose']['filters'] + ['keystone-v2']

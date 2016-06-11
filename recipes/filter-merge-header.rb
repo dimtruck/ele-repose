@@ -1,4 +1,4 @@
-include_recipe 'repose::install'
+include_recipe 'ele-repose::default'
 
 unless node['repose']['filters'].include? 'merge-header'
   filters = node['repose']['filters'] + ['merge-header']

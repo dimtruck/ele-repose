@@ -1,4 +1,4 @@
-include_recipe 'repose::install'
+include_recipe 'ele-repose::default'
 
 unless node['repose']['filters'].include? 'extract-device-id'
   filters = node['repose']['filters'] + ['extract-device-id']
