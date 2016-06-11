@@ -1,4 +1,4 @@
-include_recipe 'repose::install'
+include_recipe 'ele-repose::default'
 
 unless node['repose']['filters'].include? 'valkyrie-authorization'
   filters = node['repose']['filters'] + ['valkyrie-authorization']
