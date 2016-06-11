@@ -88,13 +88,9 @@ if %w(stage prod).include?(node.chef_environment)
 
   identity_url = URI.join(identity_url, '/').to_s # strip trailing path (repose adds it)
 
-  valkyrie_url = node.chef_environment == 'prod' ? 'https://api.valkyrie.rackspace.com' : 'https://staging.api.valkyrie.rackspace.com'
-
   node.set['repose']['keystone_v2']['identity_uri'] = identity_url
   node.set['repose']['keystone_v2']['identity_username'] = identity_username
   node.set['repose']['keystone_v2']['identity_password'] = identity_password
-
-  node.set['repose']['valkyrie_authorization']['valkyrie_server_uri'] = valkyrie_url
 
   # set non-default (environment-specific) configuration
 
@@ -119,7 +115,6 @@ if %w(stage prod).include?(node.chef_environment)
     root_path: '/',
     default: true
   }]
-
 end
 
 # NOTE these hash keys should be left as strings or system-model.cfg.xml.erb will break
@@ -184,3 +179,5 @@ remote_file "/usr/share/repose/filters/#{node['repose']['bundle_name']}" do
   mode '0755'
   action :create
 end
+
+node.save
