@@ -119,7 +119,8 @@ default['repose']['valkyrie_authorization']['enable_bypass_account_admin'] = tru
 default['repose']['valkyrie_authorization']['delegating_quality'] = nil
 default['repose']['valkyrie_authorization']['device_id_mismatch_action'] = 'keep'
 
-default['repose']['valkyrie_authorization']['valkyrie_server_uri'] = if node.chef_environment == 'prod'
+# TODO : turn to default-level, post chef-server
+normal['repose']['valkyrie_authorization']['valkyrie_server_uri'] = if node.chef_environment == 'prod'
                                                                        'https://api.valkyrie.rackspace.com'
                                                                      elsif node.chef_environment == 'stage'
                                                                        'https://staging.api.valkyrie.rackspace.com'
