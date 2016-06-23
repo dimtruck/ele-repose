@@ -179,5 +179,3 @@ remote_file "/usr/share/repose/filters/#{node['repose']['bundle_name']}" do
   mode '0755'
   action :create
 end
-
-node.save

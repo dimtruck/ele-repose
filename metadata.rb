@@ -4,7 +4,7 @@ maintainer_email 'sfo-devops@lists.rackspace.com'
 license 'Apache 2.0'
 description 'Installs/Configures ele-repose'
 long_description 'Installs/Configures ele-repose'
-version '0.3.12'
+version '0.3.13'
 
 depends 'apt'
 depends 'java'
