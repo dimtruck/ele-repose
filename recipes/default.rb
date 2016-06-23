@@ -180,4 +180,6 @@ remote_file "/usr/share/repose/filters/#{node['repose']['bundle_name']}" do
   action :create
 end
 
-node.save
+unless Chef::Config[:solo]
+  node.save
+end
