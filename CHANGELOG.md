@@ -1,3 +1,6 @@
+# 0.3.14
+- Move to custom `ohai` plugin `networks` for compatibility
+
 # 0.3.11
 - Valkyrie v2, Repose v7.3.6.0
 
