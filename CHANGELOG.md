@@ -1,3 +1,6 @@
+# 0.4.0
+- Repose v8.0.1.0
+
 # 0.3.14
 - Move to custom `ohai` plugin `networks` for compatibility
 
