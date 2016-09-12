@@ -35,6 +35,15 @@ default['repose']['http_connection_pool']['max_per_route'] = 1000
 # https://repose.atlassian.net/wiki/display/REPOSE/HTTP+Connection+Pool+service
 default['repose']['http_connection_pool']['keepalive_timeout'] = 1 # disabled
 
+# metrics configuration
+#
+## should this be dependent on ele-base attrs?  I'll have to add a dependency but
+## right now we have to add this in 2 places (ele graphite_server & ele graphite_port)
+default['repose']['graphite_server'] = '127.0.0.1'
+default['repose']['graphite_port'] = 2003
+default['repose']['graphite_period'] = 10
+default['repose']['graphite_prefix'] = ''
+
 default['repose']['header_normalization']['cluster_id'] = ['all']
 default['repose']['header_normalization']['uri_regex'] = nil
 default['repose']['header_normalization']['whitelist'] = []
