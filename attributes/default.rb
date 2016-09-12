@@ -34,6 +34,15 @@ default['repose']['connection_pool']['connection_timeout'] = 30_000 # in millis
 default['repose']['connection_pool']['max_total'] = 1000
 default['repose']['connection_pool']['max_per_route'] = 500
 
+# metrics configuration
+#
+## should this be dependent on ele-base attrs?  I'll have to add a dependency but
+## right now we have to add this in 2 places (ele graphite_server & ele graphite_port)
+default['repose']['graphite_server'] = '127.0.0.1'
+default['repose']['graphite_port'] = 2003
+default['repose']['graphite_period'] = 10
+default['repose']['graphite_prefix'] = ""
+
 default['repose']['header_normalization']['cluster_id'] = ['all']
 default['repose']['header_normalization']['uri_regex'] = nil
 default['repose']['header_normalization']['whitelist'] = []
