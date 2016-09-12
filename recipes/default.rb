@@ -167,6 +167,18 @@ template "#{node['repose']['config_directory']}/container.cfg.xml" do
   notifies :restart, 'service[repose-valve]'
 end
 
+template "#{node['repose']['config_directory']}/metrics.cfg.xml" do
+  owner node['repose']['owner']
+  group node['repose']['group']
+  mode '0644'
+  variables(
+    graphite_port: node['repose']['graphite_port'],
+    graphite_host: node['repose']['graphite_server'],
+    period: node['repose']['graphite_period'],
+    prefix: node['repose']['graphite_prefix']
+  )
+end
+
 remote_file "/usr/share/repose/filters/#{node['repose']['bundle_name']}" do
   # distfiles container in maasproject cloud files account (credentials in secure.git)
   source 'https://1897ddfb466c9e3b1daa-525efbc04163a45a7d6a38d479995b34.ssl.cf2.rackcdn.com/custom-bundle-2.0-SNAPSHOT.ear'
