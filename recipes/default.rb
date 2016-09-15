@@ -136,10 +136,6 @@ filter_uri_regex_map = {
   'merge-header'           => node['repose']['merge_header']['uri_regex']
 }
 
-service_cluster_map = {
-  :'dist-datastore' => node['repose']['dist_datastore']['cluster_id']
-}
-
 template "#{node['repose']['config_directory']}/system-model.cfg.xml" do
   owner node['repose']['owner']
   group node['repose']['group']
@@ -149,7 +145,7 @@ template "#{node['repose']['config_directory']}/system-model.cfg.xml" do
     rewrite_host_header: node['repose']['rewrite_host_header'],
     nodes: node['repose']['peers'],
     services: services,
-    service_cluster_map: service_cluster_map,
+    service_cluster_map: { 'dist-datastore' => node['repose']['dist_datastore']['cluster_id'] },
     filters: node['repose']['filters'],
     filter_cluster_map: filter_cluster_map,
     filter_uri_regex_map: filter_uri_regex_map,
