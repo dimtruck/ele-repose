@@ -36,7 +36,7 @@ default['repose']['read_timeout'] = 600_000 # in millis
 default['repose']['graphite_server'] = '127.0.0.1'
 default['repose']['graphite_port'] = 2003
 default['repose']['graphite_period'] = 10
-default['repose']['graphite_prefix'] = ""
+default['repose']['graphite_prefix'] = ''
 
 default['repose']['connection_pool']['socket_timeout'] = 600_000 # in millis
 default['repose']['connection_pool']['connection_timeout'] = 30_000 # in millis
