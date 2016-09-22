@@ -1,8 +1,8 @@
 <metrics xmlns='http://docs.openrepose.org/repose/metrics/v1.0'>
     <graphite>
-         <server host="<%= graphite_host %>"
-                 port="<%= graphite_port %>"
-                 period="<%= period %>"
-                 prefix="<%= prefix %>" />
+         <server host="<%= @graphite_host %>"
+                 port="<%= @graphite_port %>"
+                 period="<%= @period %>"
+                 prefix="<%= @prefix %>" />
    </graphite>
 </metrics>
