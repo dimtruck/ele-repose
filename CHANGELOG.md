@@ -1,3 +1,8 @@
+# 0.4.1
+- Bump ruby version
+- Disable keep alives in connection pool
+- Increase connections allowed to origin service
+
 # 0.4.0
 - Repose v8.0.1.0
 
