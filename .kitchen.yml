@@ -33,7 +33,7 @@ suites:
     "recipe[ele-repose::filter-merge-header]",
     "recipe[ele-repose::filter-valkyrie-authorization]",
 
-    "recipe[repose::service-connection-pool]",
+    "recipe[repose::service-http-connection-pool]",
     "recipe[repose::service-dist-datastore]",
     "recipe[ele-repose::default]",
     "recipe[minitest-handler]"
