@@ -1,3 +1,9 @@
+# 0.4.3
+- set timeout to 5 minutes (was 10)
+
+# 0.4.2
+- fix breakage from upstream changes
+
 # 0.4.1
 - Bump ruby version
 - Disable keep alives in connection pool
