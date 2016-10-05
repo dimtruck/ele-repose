@@ -6,11 +6,7 @@ describe 'ele-repose::default' do
 
   let(:chef_run) { ChefSpec::SoloRunner.new.converge(described_recipe) }
 
-  it 'includes the `repose` recipe' do
-    expect(chef_run).to include_recipe('repose::default')
-  end
-
-  it 'includes the `java` recipe' do
-    expect(chef_run).to include_recipe('java::default')
+  it 'includes the `repose::install` recipe' do
+    expect(chef_run).to include_recipe('repose::install')
   end
 end
