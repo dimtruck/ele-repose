@@ -27,9 +27,9 @@ default['repose']['endpoints'] = [{
 }]
 
 default['repose']['connection_timeout'] = 30_000 # in millis
-default['repose']['read_timeout'] = 600_000 # in millis
+default['repose']['read_timeout'] = 300_000 # in millis
 
-default['repose']['connection_pool']['socket_timeout'] = 600_000 # in millis
+default['repose']['connection_pool']['socket_timeout'] = 300_000 # in millis
 default['repose']['connection_pool']['connection_timeout'] = 30_000 # in millis
 default['repose']['connection_pool']['max_total'] = 2000
 default['repose']['connection_pool']['max_per_route'] = 1000
