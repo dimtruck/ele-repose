@@ -23,9 +23,9 @@ describe 'ele-repose' do
     expect(chef_run).to start_service('repose-valve')
   end
 
-#  it 'creates a template /etc/repose/metrics.cfg.xml' do
-#    expect(chef_run).to create_template('/etc/repose/metrics.cfg.xml')
-#  end
+  #  it 'creates a template /etc/repose/metrics.cfg.xml' do
+  #    expect(chef_run).to create_template('/etc/repose/metrics.cfg.xml')
+  #  end
   it 'creates a template /etc/repose/log4j2.xml' do
     expect(chef_run).to create_template('/etc/repose/log4j2.xml')
   end
