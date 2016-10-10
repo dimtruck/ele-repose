@@ -34,6 +34,6 @@ end
 
 describe service('repose-valve') do
   it { should be_enabled }
-# TODO: This doesn't work under kitchen-docker-travis, figure out why to re-enable
-#  it { should be_running.under('upstart') }
+  # TODO: This doesn't work under kitchen-docker-travis, figure out why to re-enable
+  #  it { should be_running.under('upstart') }
 end
