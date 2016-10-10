@@ -2,7 +2,7 @@ include_recipe 'ele-repose::default'
 
 unless node['repose']['filters'].include? 'extract-device-id'
   filters = node['repose']['filters'] + ['extract-device-id']
-  node.set['repose']['filters'] = filters
+  node.default['repose']['filters'] = filters
 end
 
 template "#{node['repose']['config_directory']}/extract-device-id.cfg.xml" do

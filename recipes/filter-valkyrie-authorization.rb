@@ -2,7 +2,7 @@ include_recipe 'ele-repose::default'
 
 unless node['repose']['filters'].include? 'valkyrie-authorization'
   filters = node['repose']['filters'] + ['valkyrie-authorization']
-  node.set['repose']['filters'] = filters
+  node.default['repose']['filters'] = filters
 end
 
 template "#{node['repose']['config_directory']}/valkyrie-authorization.cfg.xml" do

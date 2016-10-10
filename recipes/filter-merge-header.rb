@@ -2,7 +2,7 @@ include_recipe 'ele-repose::default'
 
 unless node['repose']['filters'].include? 'merge-header'
   filters = node['repose']['filters'] + ['merge-header']
-  node.set['repose']['filters'] = filters
+  node.default['repose']['filters'] = filters
 end
 
 template "#{node['repose']['config_directory']}/merge-header.cfg.xml" do

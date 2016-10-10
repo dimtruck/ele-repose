@@ -2,7 +2,7 @@ include_recipe 'ele-repose::default'
 
 unless node['repose']['filters'].include? 'keystone-v2'
   filters = node['repose']['filters'] + ['keystone-v2']
-  node.set['repose']['filters'] = filters
+  node.default['repose']['filters'] = filters
 end
 
 template "#{node['repose']['config_directory']}/keystone-v2.cfg.xml" do
