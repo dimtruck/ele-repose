@@ -28,9 +28,9 @@ file '/etc/init.d/repose-valve' do
 end
 
 if node.chef_environment == 'dev'
-  node.set['repose']['jvm_minimum_heap_size'] = '1g'
-  node.set['repose']['jvm_maximum_heap_size'] = '1g'
-  node.set['repose']['jvm_maximum_file_descriptors'] = '16384'
+  node.default['repose']['jvm_minimum_heap_size'] = '1g'
+  node.default['repose']['jvm_maximum_heap_size'] = '1g'
+  node.default['repose']['jvm_maximum_file_descriptors'] = '16384'
 end
 
 # NOTE repose::default is mostly copied here due to the following code (which makes wrapping nigh impossible):
@@ -88,17 +88,17 @@ if %w(stage prod).include?(node.chef_environment)
 
   identity_url = URI.join(identity_url, '/').to_s # strip trailing path (repose adds it)
 
-  node.set['repose']['keystone_v2']['identity_uri'] = identity_url
-  node.set['repose']['keystone_v2']['identity_username'] = identity_username
-  node.set['repose']['keystone_v2']['identity_password'] = identity_password
+  node.default['repose']['keystone_v2']['identity_uri'] = identity_url
+  node.default['repose']['keystone_v2']['identity_username'] = identity_username
+  node.default['repose']['keystone_v2']['identity_password'] = identity_password
 
   # set non-default (environment-specific) configuration
 
-  node.set['repose']['extract_device_id']['maas_service_uri'] = "http://#{node['networks']['ipaddress_eth0']}:7000"
+  node.default['repose']['extract_device_id']['maas_service_uri'] = "http://#{node['networks']['ipaddress_eth0']}:7000"
 
   # TODO: these next two attr updates would break a default len > 1 list of peers (should iterate and update ports?)
   # update for stage/prod port
-  node.set['repose']['peers'] = [{
+  node.default['repose']['peers'] = [{
     cluster_id: 'repose',
     id: 'repose_node',
     hostname: node['networks']['ipaddress_eth0'],
@@ -106,7 +106,7 @@ if %w(stage prod).include?(node.chef_environment)
   }]
 
   # update for stage/prod port
-  node.set['repose']['endpoints'] = [{
+  node.default['repose']['endpoints'] = [{
     cluster_id: 'repose',
     id: 'public_api',
     protocol: 'http',
