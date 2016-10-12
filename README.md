@@ -23,12 +23,10 @@ Key | Type | Description | Default
 ['peers'] | Array of Object | List of peer objects |  `[{ cluster_id: 'repose', id: 'repose_node', hostname: 'localhost', port: '13579' }]`
 ['filters'] | Array | List of Repose filters | `[ header-normalization, header-translation, keystone-v2, extract-device-id, valkyrie-authorization, merge-header]`
 ['endpoints'] | Array of Object | Public  API endpoints | `[{ cluster_id: 'repose', id: 'public_api', protocol: 'http', hostname: 'localhost', port: '32321', root_path: '/', default: true }]`
-['connection_timeout'] | Integer | Connection timeout value in milliseconds | `30,000`
-['read_timeout'] | Integer | Read timeout value in milliseconds | `600,000`
-['connection_pool']['socket_timeout'] | Integer | Connection timeout value in milliseconds | `600,000`
-['connection_pool']['connection_timeout'] | Integer | Connection timeout value in milliseconds | `30,000`
-['connection_pool']['max_total'] | Integer | Total | 1000
-['connection_pool']['max_per_route'] | Integer | Maximum per route | 500
+['http_connection_pool']['socket_timeout'] | Integer | Connection timeout value in milliseconds | `600,000`
+['http_connection_pool']['connection_timeout'] | Integer | Connection timeout value in milliseconds | `30,000`
+['http_connection_pool']['max_total'] | Integer | Total | 1000
+['http_connection_pool']['max_per_route'] | Integer | Maximum per route | 500
 ['header_normalization']['cluster_id'] | Array of Strings | cluster  ID | ['all']
 ['header_normalization']['uri_regex'] | String | Regular Expression | nil
 ['header_normalization']['whitelist'] | Array | Whitelist | `[]`
