@@ -159,8 +159,6 @@ template "#{node['repose']['config_directory']}/container.cfg.xml" do
   group node['repose']['group']
   mode '0644'
   variables(
-    connection_timeout: node['repose']['connection_timeout'],
-    read_timeout: node['repose']['read_timeout'],
     deploy_auto_clean: node['repose']['deploy_auto_clean'],
     filter_check_interval: node['repose']['filter_check_interval']
   )
