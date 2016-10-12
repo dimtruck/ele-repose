@@ -1,3 +1,5 @@
+include_attribute 'repose'
+
 # tweaks to existing repose attributes
 
 default['repose']['peers'] = [{
