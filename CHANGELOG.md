@@ -1,3 +1,8 @@
+# 0.5.1
+* custom bundle v2.1, repose 8 support
+
+# 0.5.0
+
 # 0.4.3
 - set timeout to 5 minutes (was 10)
 
