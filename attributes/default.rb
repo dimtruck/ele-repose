@@ -30,8 +30,8 @@ default['repose']['endpoints'] = [{
 
 default['repose']['http_connection_pool']['socket_timeout'] = 300_000 # in millis
 default['repose']['http_connection_pool']['connection_timeout'] = 30_000 # in millis
-default['repose']['http_connection_pool']['max_total'] = 2000
-default['repose']['http_connection_pool']['max_per_route'] = 1000
+default['repose']['http_connection_pool']['max_total'] = 4000
+default['repose']['http_connection_pool']['max_per_route'] = 2000
 # https://repose.atlassian.net/wiki/display/REPOSE/HTTP+Connection+Pool+service
 default['repose']['http_connection_pool']['keepalive_timeout'] = 1 # disabled
 
