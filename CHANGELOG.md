@@ -1,4 +1,4 @@
-# 0.5.1
+# 0.5.2
 * custom bundle v2.2, relay 429 return codes from extract-device-id filter
 
 # 0.5.1
