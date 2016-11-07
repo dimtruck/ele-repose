@@ -1,6 +1,9 @@
 Metrics/LineLength:
   Max: 280
 
+Metrics/BlockLength:
+  Max: 100
+
 Style/FileName:
   Enabled: false
 
