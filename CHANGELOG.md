@@ -1,8 +1,11 @@
+# 0.5.3
+- custom bundle v2.2, relay 429 return codes from extract-device-id filter
+
 # 0.5.2
-* custom bundle v2.2, relay 429 return codes from extract-device-id filter
+- increase connections allowed to origin service
 
 # 0.5.1
-* custom bundle v2.1, repose 8 support
+- custom bundle v2.1, repose 8 support
 
 # 0.5.0
 
