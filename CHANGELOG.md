@@ -1,3 +1,6 @@
+# 0.5.4
+- sync cookbook and git tag versions, no-op
+
 # 0.5.3
 - custom bundle v2.2, relay 429 return codes from extract-device-id filter
 
