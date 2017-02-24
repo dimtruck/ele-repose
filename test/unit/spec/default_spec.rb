@@ -26,9 +26,6 @@ describe 'ele-repose' do
   #  it 'creates a template /etc/repose/metrics.cfg.xml' do
   #    expect(chef_run).to create_template('/etc/repose/metrics.cfg.xml')
   #  end
-  it 'creates a template /etc/repose/log4j2.xml' do
-    expect(chef_run).to create_template('/etc/repose/log4j2.xml')
-  end
   it 'creates a template /etc/repose/extract-device-id.cfg.xml' do
     expect(chef_run).to create_template('/etc/repose/extract-device-id.cfg.xml')
   end
@@ -40,9 +37,6 @@ describe 'ele-repose' do
   end
   it 'creates a template /etc/repose/system-model.cfg.xml' do
     expect(chef_run).to create_template('/etc/repose/system-model.cfg.xml')
-  end
-  it 'creates a template /etc/repose/container.cfg.xml' do
-    expect(chef_run).to create_template('/etc/repose/container.cfg.xml')
   end
   it 'creates a remote_file /usr/share/repose/filters/monitoring-custom-filter-bundle.ear' do
     expect(chef_run).to create_remote_file('/usr/share/repose/filters/monitoring-custom-filter-bundle.ear')
