@@ -16,7 +16,6 @@ include_recipe 'repose::install'
 include_recipe 'repose::filter-header-normalization'
 include_recipe 'repose::filter-header-translation'
 include_recipe 'ele-repose::filter-extract-device-id'
-include_recipe 'ele-repose::filter-keystone-v2'
 include_recipe 'ele-repose::filter-merge-header'
 include_recipe 'ele-repose::filter-valkyrie-authorization'
 
