@@ -97,18 +97,10 @@ default['repose']['extract_device_id']['maas_service_uri'] = 'http://localhost:3
 default['repose']['extract_device_id']['cache_timeout_millis'] = 60000
 default['repose']['extract_device_id']['delegating_quality'] = nil
 
-default['repose']['keystone_v2']['cluster_id'] = ['all']
-default['repose']['keystone_v2']['uri_regex'] = nil
-
-# defaults are for dev/local (recipe overrides with encrypted data bag item by ele environment)
-default['repose']['keystone_v2']['identity_username'] = 'identity_username'
-default['repose']['keystone_v2']['identity_password'] = 'identity_p4ssw0rd'
-
-default['repose']['keystone_v2']['identity_uri'] = 'http://localhost:8900/identity'
-default['repose']['keystone_v2']['identity_set_roles'] = true
-default['repose']['keystone_v2']['identity_set_groups'] = false
-default['repose']['keystone_v2']['identity_set_catalog'] = false
-default['repose']['keystone_v2']['whitelist_uri_regexes'] = %w(
+default['repose']['keystone_v2']['roles_in_header'] = true
+default['repose']['keystone_v2']['groups_in_header'] = false
+default['repose']['keystone_v2']['catalog_in_header'] = false
+default['repose']['keystone_v2']['whitelist'] = %w(
   ^/?
   ^/pki/.*?
   ^/version?
@@ -116,10 +108,15 @@ default['repose']['keystone_v2']['whitelist_uri_regexes'] = %w(
   ^/_support.*?
   ^/v1.0/(\d+|[a-zA-Z]+:\d+)/agent_installers/.+(\.sh)?
 )
-default['repose']['keystone_v2']['tenant_uri_extraction_regex'] = '.*/v1.0/(\d+|[a-zA-Z]+:\d+)/.+'
-default['repose']['keystone_v2']['preauthorized_service_admin_role'] = nil
-default['repose']['keystone_v2']['token_timeout_variability'] = 15
-default['repose']['keystone_v2']['token_timeout'] = 600
+default['repose']['keystone_v2']['tenant_handling'] = {
+  'validate_tenant' => {
+    'url_extraction_regex' => '.*/v1.0/(\d+|[a-zA-Z]+:\d+)/.+'
+  }
+}
+default['repose']['keystone_v2']['cache'] = {
+  'timeout_variability' => 15,
+  'token_timeout' => 600
+}
 
 default['repose']['valkyrie_authorization']['cluster_id'] = ['all']
 default['repose']['valkyrie_authorization']['uri_regex'] = '.*/hybrid:\d+/(?!agent_installers/).*'

@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'berkshelf'
-gem 'rake'
 gem 'chef'
 gem 'chef-sugar'
+gem 'rake'
 
 group :style do
   gem 'foodcritic'

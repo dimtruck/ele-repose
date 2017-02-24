@@ -32,9 +32,6 @@ describe 'ele-repose' do
   it 'creates a template /etc/repose/extract-device-id.cfg.xml' do
     expect(chef_run).to create_template('/etc/repose/extract-device-id.cfg.xml')
   end
-  it 'creates a template /etc/repose/keystone-v2.cfg.xml' do
-    expect(chef_run).to create_template('/etc/repose/keystone-v2.cfg.xml')
-  end
   it 'creates a template /etc/repose/merge-header.cfg.xml' do
     expect(chef_run).to create_template('/etc/repose/merge-header.cfg.xml')
   end

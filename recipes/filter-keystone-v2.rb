@@ -1,26 +1,29 @@
 include_recipe 'ele-repose::default'
+include_recipe 'repose::filter-keystone-v2'
 
-unless node['repose']['filters'].include? 'keystone-v2'
-  filters = node['repose']['filters'] + ['keystone-v2']
-  node.default['repose']['filters'] = filters
+if %w(stage prod).include?(node.chef_environment)
+  # load non-default secrets
+  ele_credentials = Chef::EncryptedDataBagItem.load('passwords', 'ele')
+
+  # extract regional identity credentials
+  ele_us_auth_api_databag_item = "us_auth_api_password_#{node.chef_environment}"
+  ele_uk_auth_api_databag_item = "uk_auth_api_password_#{node.chef_environment}"
+
+  if node['ele']['datacenter'] == 'lon3'
+    identity_url = node['ele']['uk_identity_service_url_2']
+    identity_username = node['ele']['uk_auth_service_username']
+    identity_password = ele_credentials[ele_uk_auth_api_databag_item]
+  else
+    identity_url = node['ele']['us_identity_service_url_2']
+    identity_username = node['ele']['us_auth_service_username']
+    identity_password = ele_credentials[ele_us_auth_api_databag_item]
+  end
+
+  node.default['repose']['keystone_v2']['uri'] = identity_url
+  node.default['repose']['keystone_v2']['username_admin'] = identity_username
+  node.default['repose']['keystone_v2']['password_admin'] = identity_password
 end
 
-template "#{node['repose']['config_directory']}/keystone-v2.cfg.xml" do
-  owner node['repose']['owner']
-  group node['repose']['group']
-  mode '0644'
-  variables(
-    identity_username: node['repose']['keystone_v2']['identity_username'],
-    identity_password: node['repose']['keystone_v2']['identity_password'],
-    identity_uri: node['repose']['keystone_v2']['identity_uri'],
-    identity_set_roles: node['repose']['keystone_v2']['identity_set_roles'],
-    identity_set_groups: node['repose']['keystone_v2']['identity_set_groups'],
-    identity_set_catalog: node['repose']['keystone_v2']['identity_set_catalog'],
-    whitelist_uri_regexes: node['repose']['keystone_v2']['whitelist_uri_regexes'],
-    tenant_uri_extraction_regex: node['repose']['keystone_v2']['tenant_uri_extraction_regex'],
-    preauthorized_service_admin_role: node['repose']['keystone_v2']['preauthorized_service_admin_role'],
-    token_timeout_variability: node['repose']['keystone_v2']['token_timeout_variability'],
-    token_timeout: node['repose']['keystone_v2']['token_timeout']
-  )
-  notifies :restart, 'service[repose-valve]'
+if %w(dev).include?(node.chef_environment)
+  node.default['repose']['keystone_v2']['uri'] = 'http://localhost:8900/identity'
 end
