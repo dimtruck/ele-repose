@@ -10,6 +10,7 @@ env:
   matrix:
   - TESTS="style"
   - TESTS="integration:docker[default-ubuntu-1404]"
+  - TESTS="integration:docker[staging-dfw1-keystone-ubuntu-1404]"
 
 before_install: 
   - curl -L https://www.getchef.com/chef/install.sh | sudo bash -s -- -P chefdk
