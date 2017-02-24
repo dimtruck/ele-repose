@@ -22,14 +22,7 @@ describe file('/etc/repose/container.cfg.xml') do
   it { should be_file }
   it { should be_owned_by 'repose' }
   it { should be_grouped_into 'repose' }
-  it { should be_mode 644 }
-end
-
-describe file('/etc/repose/system-model.cfg.xml') do
-  it { should be_file }
-  it { should be_owned_by 'repose' }
-  it { should be_grouped_into 'repose' }
-  it { should be_mode 644 }
+  it { should be_mode 640 }
 end
 
 describe service('repose-valve') do
