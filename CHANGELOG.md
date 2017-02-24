@@ -1,3 +1,9 @@
+# 0.5.5
+- remove duplicate keystone-v2 template
+- remove duplicate container.cfg template
+- remove duplicate log4j2.xml template
+- minor rubocop and test updates
+
 # 0.5.4
 - sync cookbook and git tag versions, no-op
 
