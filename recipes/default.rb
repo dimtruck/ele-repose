@@ -86,12 +86,6 @@ if %w(stage prod).include?(node.chef_environment)
     identity_password = ele_credentials[ele_us_auth_api_databag_item]
   end
 
-  identity_url = URI.join(identity_url, '/').to_s # strip trailing path (repose adds it)
-
-  node.default['repose']['keystone_v2']['identity_uri'] = identity_url
-  node.default['repose']['keystone_v2']['identity_username'] = identity_username
-  node.default['repose']['keystone_v2']['identity_password'] = identity_password
-
   # set non-default (environment-specific) configuration
 
   node.default['repose']['extract_device_id']['maas_service_uri'] = "http://#{node['networks']['ipaddress_eth0']}:7000"
