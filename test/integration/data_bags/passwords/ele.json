@@ -1,0 +1,15 @@
+{
+  "id": "ele",
+  "uk_auth_api_password_stage": {
+    "encrypted_data": "gYyJmQCupxEZ8jZ3+hyEb8ulXVBVSY0UDjuN+WB/EJk=\n",
+    "iv": "5Wv4prhtGBNm/Qvq9h3feA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "us_auth_api_password_stage": {
+    "encrypted_data": "NPxA01ZW34kgSsAGAoIH0V+5Is28M0zjREuLAo4wmb4=\n",
+    "iv": "ApVGvNax6SPl2uosFlFglg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

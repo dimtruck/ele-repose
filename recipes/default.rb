@@ -13,12 +13,9 @@ end
 
 include_recipe 'repose::install'
 
-include_recipe 'ele-repose::log4j2'
-
 include_recipe 'repose::filter-header-normalization'
 include_recipe 'repose::filter-header-translation'
 include_recipe 'ele-repose::filter-extract-device-id'
-include_recipe 'ele-repose::filter-keystone-v2'
 include_recipe 'ele-repose::filter-merge-header'
 include_recipe 'ele-repose::filter-valkyrie-authorization'
 
@@ -126,17 +123,6 @@ template "#{node['repose']['config_directory']}/system-model.cfg.xml" do
     filter_cluster_map: filter_cluster_map,
     filter_uri_regex_map: filter_uri_regex_map,
     endpoints: node['repose']['endpoints']
-  )
-  notifies :restart, 'service[repose-valve]'
-end
-
-template "#{node['repose']['config_directory']}/container.cfg.xml" do
-  owner node['repose']['owner']
-  group node['repose']['group']
-  mode '0644'
-  variables(
-    deploy_auto_clean: node['repose']['deploy_auto_clean'],
-    filter_check_interval: node['repose']['filter_check_interval']
   )
   notifies :restart, 'service[repose-valve]'
 end
