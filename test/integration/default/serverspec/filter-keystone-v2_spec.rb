@@ -9,6 +9,6 @@ describe file('/etc/repose/keystone-v2.cfg.xml') do
   it { should be_owned_by 'repose' }
   it { should be_grouped_into 'repose' }
   it { should be_mode 640 }
-  its(:content) { should match /\/v2.0/ }
-  its(:content) { should_not match /\/v2.0\/v2.0/ }
+  its(:content) { should match %r{/v2.0} }
+  its(:content) { should_not match %r{/v2.0\/v2.0} }
 end
