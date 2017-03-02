@@ -1,3 +1,7 @@
+# 0.5.6
+- add branch tests for lon or not lon DC for keystone attributes
+- add a chomp to remove v2.0 from the identity URI
+
 # 0.5.5
 - remove duplicate keystone-v2 template
 - remove duplicate container.cfg template
