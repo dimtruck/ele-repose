@@ -8,6 +8,9 @@ provisioner:
   name: chef_zero
   require_chef_omnibus: 12.8.1 # to match my chef environment version, alter as-needed
   chef_omnibus_install_options: -d /tmp/vagrant-cache/vagrant_omnibus
+  data_bags_path: "test/integration/data_bags"
+  environments_path: "test/integration/environments"
+  encrypted_data_bag_secret_key_path: "test/integration/default/encrypted_data_bag_secret"
 
 platforms:
   - name: ubuntu-14.04
@@ -80,6 +83,3 @@ suites:
       datacenter: "dfw1"
       us_identity_service_url_2: "https://staging.identity.api.rackspacecloud.com./v2.0"
       us_auth_service_username: "us-admin"
-  data_bags_path: "test/integration/data_bags"
-  environments_path: "test/integration/environments"
-  encrypted_data_bag_secret_key_path: "test/integration/default/encrypted_data_bag_secret"
