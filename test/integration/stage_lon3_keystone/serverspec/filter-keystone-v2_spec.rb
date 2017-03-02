@@ -12,8 +12,8 @@ describe file('/etc/repose/keystone-v2.cfg.xml') do
   its(:content) { should_not match %r{uri="https://staging.identity.api.rackspacecloud.com."} }
   its(:content) { should match %r{uri="https://lon.staging.identity.api.rackspacecloud.com."} }
   its(:content) { should_not match %r{uri="https://staging.identity.api.rackspacecloud.com./v2.0"} }
-  its(:content) { should_not match %r{username\=\"us\-admin\"} }
-  its(:content) { should match %r{username\=\"uk\-admin\"} }
-  its(:content) { should_not match %r{password\=\"uspass\"} }
-  its(:content) { should match %r{password\=\"ukpass\"} }
+  its(:content) { should_not match %r{username="us-admin"} }
+  its(:content) { should match %r{username="uk-admin"} }
+  its(:content) { should_not match %r{password="uspass"} }
+  its(:content) { should match %r{password="ukpass"} }
 end
