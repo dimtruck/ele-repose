@@ -19,32 +19,33 @@ platforms:
 
 suites:
 - name: default
-  run_list: [
-    "apt",
-    "java",
-    "recipe[ele-repose::default]",
-    "recipe[repose::filter-slf4j-http-logging]",
-    "recipe[repose::filter-header-normalization]",
-    "recipe[repose::filter-header-translation]",
-    "recipe[ele-repose::filter-keystone-v2]",
-    "recipe[ele-repose::filter-extract-device-id]",
-    "recipe[ele-repose::filter-valkyrie-authorization]",
-    "recipe[ele-repose::filter-merge-header]",
-    "recipe[repose::service-http-connection-pool]",
-    "recipe[repose::service-dist-datastore]"
-  ]
+  run_list:
+    - apt
+    - java
+    - recipe[ele-repose::default]
+    - recipe[ele-repose::filter-keystone-v2]
+    - recipe[ele-repose::filter-extract-device-id]
+    - recipe[ele-repose::filter-valkyrie-authorization]
+    - recipe[repose::filter-slf4j-http-logging]
+    - recipe[repose::filter-header-normalization]
+    - recipe[repose::filter-header-translation]
+    - recipe[repose::service-http-connection-pool]
+    - recipe[repose::service-dist-datastore]
   attributes:
     repose:
       client_auth:
         auth_provider: 'OPENSTACK'
       rewrite_host_header: false
-- name: staging_dfw1_keystone
-  run_list: [
-    "apt",
-    "java",
-    "recipe[ele-repose::default]",
-    "recipe[ele-repose::filter-keystone-v2]"
-  ]
+    ele:
+      datacenter: "ord1"
+      us_identity_service_url_2: "https://staging.identity.api.rackspacecloud.com./v2.0"
+      us_auth_service_username: "us-admin"
+- name: stage_lon3_keystone
+  run_list:
+    - apt
+    - java
+    - recipe[ele-repose::default]
+    - recipe[ele-repose::filter-keystone-v2]
   provisioner:
     client_rb:
       environment: stage
@@ -56,6 +57,29 @@ suites:
     networks:
       ipaddress_eth0: 127.0.0.1
     ele:
-      datacenter: dfw1
-      us_identity_service_url_2: "awesome-identity-domain"
-      us_auth_service_username: "chuckie"
+      datacenter: "lon3"
+      uk_identity_service_url_2: "https://lon.staging.identity.api.rackspacecloud.com./v2.0"
+      uk_auth_service_username: "uk-admin"
+  data_bags_path: "test/integration/data_bags"
+  environments_path: "test/integration/environments"
+  encrypted_data_bag_secret_key_path: "test/integration/default/encrypted_data_bag_secret"
+- name: stage_dfw1_keystone
+  run_list:
+    - apt
+    - java
+    - recipe[ele-repose::default]
+    - recipe[ele-repose::filter-keystone-v2]
+  provisioner:
+    client_rb:
+      environment: stage
+  attributes:
+    repose:
+      client_auth:
+        auth_provider: 'OPENSTACK'
+      rewrite_host_header: false
+    networks:
+      ipaddress_eth0: 127.0.0.1
+    ele:
+      datacenter: "dfw1"
+      us_identity_service_url_2: "https://staging.identity.api.rackspacecloud.com./v2.0"
+      us_auth_service_username: "us-admin"
