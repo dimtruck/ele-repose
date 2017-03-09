@@ -10,4 +10,5 @@ describe file('/etc/repose/keystone-v2.cfg.xml') do
   it { should be_grouped_into 'repose' }
   it { should be_mode 640 }
   its(:content) { should_not match %r{/v2.0} }
+  its(:content) { should match %r{white_list} }
 end
