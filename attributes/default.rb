@@ -100,7 +100,7 @@ default['repose']['extract_device_id']['delegating_quality'] = nil
 default['repose']['keystone_v2']['roles_in_header'] = true
 default['repose']['keystone_v2']['groups_in_header'] = false
 default['repose']['keystone_v2']['catalog_in_header'] = false
-default['repose']['keystone_v2']['whitelist'] = %w(
+default['repose']['keystone_v2']['white_list'] = %w(
   ^/?
   ^/pki/.*?
   ^/version?
