@@ -12,7 +12,6 @@ java_ark 'jdk' do
 end
 
 include_recipe 'repose::install'
-include_recipe 'ele-repose::filter-extract-device-id'
 include_recipe 'ele-repose::filter-merge-header'
 include_recipe 'ele-repose::filter-valkyrie-authorization'
 
@@ -62,9 +61,9 @@ node['repose']['services'].each do |service|
   include_recipe "repose::service-#{service}"
 end
 
-if %w(stage prod).include?(node.chef_environment)
+if node.chef_environment.include?('stage')
   # set non-default (environment-specific) configuration
-  node.default['repose']['extract_device_id']['maas_service_uri'] = "http://#{node['networks']['ipaddress_eth0']}:7000"
+  node.default['repose']['extract_device_id']['maas_service_uri'] = "http://#{node['networks']['ipaddress_eth0']}:7000" 
 
   # TODO: these next two attr updates would break a default len > 1 list of peers (should iterate and update ports?)
   # update for stage/prod port
@@ -144,3 +143,5 @@ remote_file "/usr/share/repose/filters/#{node['repose']['bundle_name']}" do
   mode '0755'
   action :create
 end
+
+include_recipe 'ele-repose::filter-extract-device-id'

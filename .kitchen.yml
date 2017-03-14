@@ -1,6 +1,7 @@
 ---
 driver:
   name: vagrant
+  cachier: true
   customize:
     memory: 2560
 
@@ -69,6 +70,26 @@ suites:
     - java
     - recipe[ele-repose::default]
     - recipe[ele-repose::filter-keystone-v2]
+  provisioner:
+    client_rb:
+      environment: stage
+  attributes:
+    repose:
+      client_auth:
+        auth_provider: 'OPENSTACK'
+      rewrite_host_header: false
+    networks:
+      ipaddress_eth0: 127.0.0.1
+    ele:
+      datacenter: "dfw1"
+      us_identity_service_url_2: "https://staging.identity.api.rackspacecloud.com./v2.0"
+      us_auth_service_username: "us-admin"
+- name: stage_dfw1_extract-device-id
+  run_list:
+    - apt
+    - java
+    - recipe[ele-repose::default]
+    - recipe[ele-repose::filter-extract-device-id]
   provisioner:
     client_rb:
       environment: stage

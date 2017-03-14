@@ -9,6 +9,6 @@ describe file('/etc/repose/extract-device-id.cfg.xml') do
   it { should be_owned_by 'repose' }
   it { should be_grouped_into 'repose' }
   it { should be_mode 644 }
-  its(:content) { should match %r{localhost:32321} }
-  its(:content) { should_not match %r{127.0.0.1:7000} }
+  its(:content) { should match %r{127.0.0.1:7000} }
+  its(:content) { should_not match %r{localhost:32321} }
 end
