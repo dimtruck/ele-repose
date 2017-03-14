@@ -1,3 +1,7 @@
+# 0.5.8
+- add integration tests for extract-device-id uri issue
+- add cachier to kitchen driver to see if that can speed up local testing
+
 # 0.5.7
 - fix bug in keystone_v2 attribute name
 

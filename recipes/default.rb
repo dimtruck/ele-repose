@@ -12,7 +12,6 @@ java_ark 'jdk' do
 end
 
 include_recipe 'repose::install'
-include_recipe 'ele-repose::filter-extract-device-id'
 include_recipe 'ele-repose::filter-merge-header'
 include_recipe 'ele-repose::filter-valkyrie-authorization'
 
@@ -144,3 +143,5 @@ remote_file "/usr/share/repose/filters/#{node['repose']['bundle_name']}" do
   mode '0755'
   action :create
 end
+
+include_recipe 'ele-repose::filter-extract-device-id'
