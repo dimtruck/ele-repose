@@ -61,7 +61,7 @@ node['repose']['services'].each do |service|
   include_recipe "repose::service-#{service}"
 end
 
-if node.chef_environment.include?('stage')
+if %w(stage prod).include?(node.chef_environment)
   # set non-default (environment-specific) configuration
   node.default['repose']['extract_device_id']['maas_service_uri'] = "http://#{node['networks']['ipaddress_eth0']}:7000" 
 
