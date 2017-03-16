@@ -12,6 +12,9 @@ java_ark 'jdk' do
 end
 
 include_recipe 'repose::install'
+include_recipe 'repose::filter-header-normalization'
+include_recipe 'repose::filter-header-translation'
+include_recipe 'ele-repose::filter-keystone-v2'
 include_recipe 'ele-repose::filter-merge-header'
 include_recipe 'ele-repose::filter-valkyrie-authorization'
 
@@ -55,8 +58,7 @@ directory node['repose']['config_directory'] do
   mode '0755'
 end
 
-services = node['repose']['services'].reject { |x| x == 'connection-pool' }
-
+services = node['repose']['services'].reject { |x| x == 'http-connection-pool' }
 node['repose']['services'].each do |service|
   include_recipe "repose::service-#{service}"
 end
@@ -114,7 +116,7 @@ template "#{node['repose']['config_directory']}/system-model.cfg.xml" do
     rewrite_host_header: node['repose']['rewrite_host_header'],
     nodes: node['repose']['peers'],
     services: services,
-    service_cluster_map: { 'dist-datastore' => node['repose']['dist_datastore']['cluster_id'] },
+    service_cluster_map: { 'http-connection-pool' => node['repose']['http_connection_pool']['cluster_id'] },
     filters: node['repose']['filters'],
     filter_cluster_map: filter_cluster_map,
     filter_uri_regex_map: filter_uri_regex_map,

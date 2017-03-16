@@ -1,3 +1,7 @@
+# 0.5.9
+- add header-normalization and header-translation to be explicitly called from ele-repose::default
+- add basic integration tests to check for some content in header translation and normalization config files
+
 # 0.5.8
 - add integration tests for extract-device-id uri issue
 - add cachier to kitchen driver to see if that can speed up local testing

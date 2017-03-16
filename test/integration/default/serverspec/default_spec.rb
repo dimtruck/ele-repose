@@ -25,6 +25,30 @@ describe file('/etc/repose/container.cfg.xml') do
   it { should be_mode 640 }
 end
 
+describe file('/etc/repose/http-connection-pool.cfg.xml') do
+  it { should be_file }
+  it { should be_owned_by 'repose' }
+  it { should be_grouped_into 'repose' }
+  it { should be_mode 644 }
+  its(:content) { should contain %r{http.conn-manager.max-total="4000"} }
+end
+
+describe file('/etc/repose/header-normalization.cfg.xml') do
+  it { should be_file }
+  it { should be_owned_by 'repose' }
+  it { should be_grouped_into 'repose' }
+  it { should be_mode 644 }
+  its(:content) { should contain %r{header id="X-Authorization"\/} }
+end
+
+describe file('/etc/repose/header-translation.cfg.xml') do
+  it { should be_file }
+  it { should be_owned_by 'repose' }
+  it { should be_grouped_into 'repose' }
+  it { should be_mode 644 }
+  its(:content) { should contain %r{new-name="X-Repose-Forwarded-Host"} }
+end
+
 describe service('repose-valve') do
   it { should be_enabled }
   # TODO: This doesn't work under kitchen-docker-travis, figure out why to re-enable
