@@ -28,6 +28,10 @@ default['repose']['endpoints'] = [{
   default: true
 }]
 
+default['repose']['services'] = %w(
+  http-connection-pool
+)
+
 default['repose']['http_connection_pool']['socket_timeout'] = 300_000 # in millis
 default['repose']['http_connection_pool']['connection_timeout'] = 30_000 # in millis
 default['repose']['http_connection_pool']['max_total'] = 4000

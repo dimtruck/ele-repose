@@ -24,14 +24,6 @@ suites:
     - apt
     - java
     - recipe[ele-repose::default]
-    - recipe[ele-repose::filter-keystone-v2]
-    - recipe[ele-repose::filter-extract-device-id]
-    - recipe[ele-repose::filter-valkyrie-authorization]
-    - recipe[repose::filter-slf4j-http-logging]
-    - recipe[repose::filter-header-normalization]
-    - recipe[repose::filter-header-translation]
-    - recipe[repose::service-http-connection-pool]
-    - recipe[repose::service-dist-datastore]
   attributes:
     repose:
       client_auth:
