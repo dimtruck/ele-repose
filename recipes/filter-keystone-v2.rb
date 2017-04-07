@@ -1,6 +1,6 @@
 include_recipe 'ele-repose::default'
 
-if %w(stage prod _default).include?(node.chef_environment)
+if %w(stage prod).include?(node.chef_environment)
   # load non-default secrets
   ele_credentials = Chef::EncryptedDataBagItem.load('passwords', 'ele')
 
