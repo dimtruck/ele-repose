@@ -23,8 +23,4 @@ if %w(stage prod _default).include?(node.chef_environment)
   node.default['repose']['keystone_v2']['password_admin'] = identity_password
 end
 
-if %w(dev).include?(node.chef_environment)
-  node.override['repose']['keystone_v2']['uri'] = 'http://localhost:8900/identity'
-end
-
 include_recipe 'repose::filter-keystone-v2'

@@ -101,6 +101,7 @@ default['repose']['extract_device_id']['maas_service_uri'] = 'http://localhost:3
 default['repose']['extract_device_id']['cache_timeout_millis'] = 60000
 default['repose']['extract_device_id']['delegating_quality'] = nil
 
+default['repose']['keystone_v2']['uri'] = 'http://localhost:8900/identity'
 default['repose']['keystone_v2']['roles_in_header'] = true
 default['repose']['keystone_v2']['white_list'] = %w(
   ^/?
