@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 include_recipe 'ele-repose::default'
 
 unless node['repose']['filters'].include? 'merge-header'
