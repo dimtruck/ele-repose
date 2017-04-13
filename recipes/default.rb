@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'uri'
 
 # extract-device-id filter requires java 1.8

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 include_recipe 'ele-repose::default'
 
 if %w[stage prod _default].include?(node.chef_environment)

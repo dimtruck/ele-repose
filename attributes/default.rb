@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 include_attribute 'repose'
 
 # tweaks to existing repose attributes

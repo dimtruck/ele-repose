@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name 'ele-repose'
 maintainer 'Rackspace'
 maintainer_email 'sfo-devops@lists.rackspace.com'
