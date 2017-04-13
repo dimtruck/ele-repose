@@ -1,6 +1,6 @@
 include_recipe 'ele-repose::default'
 
-if %w(stage prod).include?(node.chef_environment)
+if %w[stage prod _default].include?(node.chef_environment)
   # load non-default secrets
   ele_credentials = Chef::EncryptedDataBagItem.load('passwords', 'ele')
 
@@ -21,10 +21,6 @@ if %w(stage prod).include?(node.chef_environment)
   node.default['repose']['keystone_v2']['uri'] = identity_url
   node.default['repose']['keystone_v2']['username_admin'] = identity_username
   node.default['repose']['keystone_v2']['password_admin'] = identity_password
-end
-
-if %w(dev).include?(node.chef_environment)
-  node.override['repose']['keystone_v2']['uri'] = 'http://localhost:8900/identity'
 end
 
 include_recipe 'repose::filter-keystone-v2'

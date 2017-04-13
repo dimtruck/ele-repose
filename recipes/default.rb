@@ -41,7 +41,7 @@ end
 
 service 'repose-valve' do
   supports restart: true, status: true
-  action [:enable, :start]
+  action %i[enable start]
   provider Chef::Provider::Service::Upstart
 end
 
@@ -63,7 +63,7 @@ node['repose']['services'].each do |service|
   include_recipe "repose::service-#{service}"
 end
 
-if %w(stage prod).include?(node.chef_environment)
+if %w[stage prod].include?(node.chef_environment)
   # set non-default (environment-specific) configuration
   node.default['repose']['extract_device_id']['maas_service_uri'] = "http://#{node['networks']['ipaddress_eth0']}:7000"
 
