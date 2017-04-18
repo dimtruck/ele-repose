@@ -1,3 +1,6 @@
+# 0.6.0
+- simplify logic determining valkyrie_server_uri
+
 # 0.5.9
 - add header-normalization and header-translation to be explicitly called from ele-repose::default
 - add basic integration tests to check for some content in header translation and normalization config files

@@ -132,13 +132,7 @@ default['repose']['valkyrie_authorization']['delegating_quality'] = nil
 default['repose']['valkyrie_authorization']['device_id_mismatch_action'] = 'keep'
 
 # TODO : turn to default-level, post chef-server
-normal['repose']['valkyrie_authorization']['valkyrie_server_uri'] = if node.chef_environment == 'prod'
-                                                                      'https://api.valkyrie.rackspace.com'
-                                                                    elsif node.chef_environment == 'stage'
-                                                                      'https://staging.api.valkyrie.rackspace.com'
-                                                                    else
-                                                                      'http://localhost:8900/valkyrie/v2.0'
-                                                                    end
+normal['repose']['valkyrie_authorization']['valkyrie_server_uri'] = 'http://localhost:8900/valkyrie/v2.0'
 
 default['repose']['merge_header']['cluster_id'] = ['all']
 default['repose']['merge_header']['uri_regex'] = nil
