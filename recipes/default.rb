@@ -149,3 +149,13 @@ remote_file "/usr/share/repose/filters/#{node['repose']['bundle_name']}" do
 end
 
 include_recipe 'ele-repose::filter-extract-device-id'
+
+# put a hold on the repose deb packages
+repose_pkgs = %w[repose-extensions-filter-bundle repose-filter-bundle repose-valve]
+repose_pkgs.each do |pkg|
+  execute "hold #{pkg}" do
+    command "echo '#{pkg} hold' | sudo dpkg --set-selections"
+    not_if "dpkg --get-selections | grep #{pkg} | grep hold"
+    action :run
+  end
+end
