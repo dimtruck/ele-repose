@@ -67,14 +67,14 @@ end
 
 if %w[stage prod].include?(node.chef_environment)
   # set non-default (environment-specific) configuration
-  node.default['repose']['extract_device_id']['maas_service_uri'] = "http://#{node['networks']['ipaddress_eth0']}:7000"
+  node.default['repose']['extract_device_id']['maas_service_uri'] = "http://#{node['privateaddress']}:7000"
 
   # TODO: these next two attr updates would break a default len > 1 list of peers (should iterate and update ports?)
   # update for stage/prod port
   node.default['repose']['peers'] = [{
     cluster_id: 'repose',
     id: 'repose_node',
-    hostname: node['networks']['ipaddress_eth0'],
+    hostname: node['privateaddress'],
     port: '8080'
   }]
 
@@ -83,7 +83,7 @@ if %w[stage prod].include?(node.chef_environment)
     cluster_id: 'repose',
     id: 'public_api',
     protocol: 'http',
-    hostname: node['networks']['ipaddress_eth0'],
+    hostname: node['privateaddress'],
     port: '7000',
     root_path: '/',
     default: true
