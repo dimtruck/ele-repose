@@ -43,7 +43,7 @@ end
 
 service 'repose-valve' do
   supports restart: true, status: true
-  action %i[enable start]
+  action %i(enable start)
   provider Chef::Provider::Service::Upstart
 end
 
@@ -65,7 +65,7 @@ node['repose']['services'].each do |service|
   include_recipe "repose::service-#{service}"
 end
 
-if %w[stage prod].include?(node.chef_environment)
+if %w(stage prod).include?(node.chef_environment)
   # set non-default (environment-specific) configuration
   node.default['repose']['extract_device_id']['maas_service_uri'] = "http://#{node.ipaddress}:7000"
 
@@ -151,7 +151,7 @@ end
 include_recipe 'ele-repose::filter-extract-device-id'
 
 # put a hold on the repose deb packages
-repose_pkgs = %w[repose-extensions-filter-bundle repose-filter-bundle repose-valve]
+repose_pkgs = %w(repose-extensions-filter-bundle repose-filter-bundle repose-valve)
 repose_pkgs.each do |pkg|
   execute "hold #{pkg}" do
     command "echo '#{pkg} hold' | sudo dpkg --set-selections"
