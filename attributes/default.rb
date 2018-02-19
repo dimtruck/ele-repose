@@ -11,14 +11,14 @@ default['repose']['peers'] = [{
   port: '13579'
 }]
 
-default['repose']['filters'] = %w(
+default['repose']['filters'] = %w[
   header-normalization
   header-translation
   keystone-v2
   extract-device-id
   valkyrie-authorization
   merge-header
-)
+]
 
 default['repose']['endpoints'] = [{
   cluster_id: 'repose',
@@ -30,9 +30,9 @@ default['repose']['endpoints'] = [{
   default: true
 }]
 
-default['repose']['services'] = %w(
+default['repose']['services'] = %w[
   http-connection-pool
-)
+]
 
 default['repose']['http_connection_pool']['socket_timeout'] = 300_000 # in millis
 default['repose']['http_connection_pool']['connection_timeout'] = 30_000 # in millis
@@ -57,7 +57,7 @@ default['repose']['header_normalization']['whitelist'] = []
 default['repose']['header_normalization']['blacklist'] = [{
   id: 'authorization',
   http_methods: 'ALL',
-  headers: %w(
+  headers: %w[
     X-Authorization
     X-Token-Expires
     X-Identity-Status
@@ -75,7 +75,7 @@ default['repose']['header_normalization']['blacklist'] = [{
     X-Subject-Token
     X-Subject-Name
     X-Subject-ID
-  )
+  ]
 }]
 
 default['repose']['version'] = '8.0.1.0'
@@ -136,4 +136,4 @@ normal['repose']['valkyrie_authorization']['valkyrie_server_uri'] = 'http://loca
 
 default['repose']['merge_header']['cluster_id'] = ['all']
 default['repose']['merge_header']['uri_regex'] = nil
-default['repose']['merge_header']['headers'] = %w(X-Roles X-Impersonator-Roles)
+default['repose']['merge_header']['headers'] = %w[X-Roles X-Impersonator-Roles]
