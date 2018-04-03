@@ -4,7 +4,7 @@ include_recipe 'ele-repose::default'
 
 if %w[stage prod _default].include?(node.chef_environment)
   # load non-default secrets
-  ele_credentials = Chef::EncryptedDataBagItem.load('passwords', 'ele')
+  ele_credentials = data_bag_item('passwords', 'ele')
 
   # extract regional identity credentials
   ele_us_auth_api_databag_item = "us_auth_api_password_#{node.chef_environment}"
