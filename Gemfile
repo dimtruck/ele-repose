@@ -18,7 +18,7 @@ group :spec do
 end
 
 group :integration do
-  gem 'test-kitchen', '~> 1.4.1'
+  gem 'test-kitchen', '~> 1.20.0'
 end
 
 group :vagrant do
@@ -27,5 +27,5 @@ group :vagrant do
 end
 
 group :integration_docker do
-  gem 'kitchen-docker', '~> 2.3'
+  gem 'kitchen-docker', '~> 2.6.0'
 end
