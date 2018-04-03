@@ -4,6 +4,8 @@ include_attribute 'repose'
 
 # tweaks to existing repose attributes
 
+default['repose']['actions'] = ['enable', 'start']
+
 default['repose']['peers'] = [{
   cluster_id: 'repose',
   id: 'repose_node',

@@ -43,7 +43,7 @@ end
 
 service 'repose-valve' do
   supports restart: true, status: true
-  action %i[enable start]
+  action node['repose']['actions']
   provider Chef::Provider::Service::Upstart
 end
 
