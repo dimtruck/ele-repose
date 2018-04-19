@@ -24,7 +24,7 @@ describe file('/etc/repose/open-tracing.cfg.xml') do
   it { should be_owned_by 'repose' }
   it { should be_grouped_into 'repose' }
   it { should be_mode 644 }
-  its(:content) { should match /toggle="on"/ }
+  its(:content) { should match %r{toggle="on"} }
   its(:content) { should match %r{endpoint="http://jaeger-stage.rackspace.com/api/traces"} }
 end
 
