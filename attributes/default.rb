@@ -34,6 +34,7 @@ default['repose']['endpoints'] = [{
 
 default['repose']['services'] = %w[
   http-connection-pool
+  open-tracing
 ]
 
 default['repose']['http_connection_pool']['socket_timeout'] = 300_000 # in millis
@@ -80,7 +81,7 @@ default['repose']['header_normalization']['blacklist'] = [{
   ]
 }]
 
-default['repose']['version'] = '8.0.1.0'
+default['repose']['version'] = '8.8.3.0'
 default['repose']['jvm_minimum_heap_size'] = '2g'
 default['repose']['jvm_maximum_heap_size'] = '4g'
 default['repose']['jvm_maximum_file_descriptors'] = '65535'

@@ -70,6 +70,11 @@ suites:
       client_auth:
         auth_provider: 'OPENSTACK'
       rewrite_host_header: false
+      open_tracing:
+        http:
+          endpoint: 'http://jaeger-stage.rackspace.com/api/traces'
+        constant:
+          toggle: 'on'
     networks:
       ipaddress_eth0: 127.0.0.1
     ele:

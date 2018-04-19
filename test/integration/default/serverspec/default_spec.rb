@@ -34,6 +34,14 @@ describe file('/etc/repose/http-connection-pool.cfg.xml') do
   its(:content) { should contain %r{http.conn-manager.max-total="4000"} }
 end
 
+describe file('/etc/repose/open-tracing.cfg.xml') do
+  it { should be_file }
+  it { should be_owned_by 'repose' }
+  it { should be_grouped_into 'repose' }
+  it { should be_mode 644 }
+  its(:content) { should contain %r{toggle="off"} }
+end
+
 describe file('/etc/repose/header-normalization.cfg.xml') do
   it { should be_file }
   it { should be_owned_by 'repose' }

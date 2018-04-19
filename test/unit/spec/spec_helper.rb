@@ -14,6 +14,13 @@ require 'chef/application'
   version: '14.04'
 }.freeze
 
-def stub_resources; end
+def stub_resources
+  stub_data_bag_item("passwords", "ele").and_return(
+    'us_auth_api_password_#{node.chef_environment}' => 'pass'
+  )
+  stub_command("dpkg --get-selections | grep repose-extensions-filter-bundle | grep hold").and_return(true)
+  stub_command("dpkg --get-selections | grep repose-filter-bundle | grep hold").and_return(true)
+  stub_command("dpkg --get-selections | grep repose-valve | grep hold").and_return(true)
+end
 
 at_exit { ChefSpec::Coverage.report! }
