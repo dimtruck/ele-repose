@@ -2,8 +2,8 @@
 
 source 'https://rubygems.org'
 
-gem 'berkshelf'
-gem 'chef'
+gem 'berkshelf', '~> 5'
+gem 'chef', '~> 12.14.89'
 gem 'chef-sugar'
 gem 'rake'
 
