@@ -60,7 +60,7 @@ directory node['repose']['config_directory'] do
   mode '0755'
 end
 
-services = node['repose']['services'].reject { |x| %w(http-connection-pool open-tracing).include?(x) }
+services = node['repose']['services'].reject { |x| %w[http-connection-pool open-tracing].include?(x) }
 node['repose']['services'].each do |service|
   include_recipe "repose::service-#{service}"
 end
